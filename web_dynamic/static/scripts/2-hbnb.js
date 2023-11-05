@@ -33,7 +33,7 @@ $(document).ready(function () {
   }
   $.ajax({
     type: 'GET',
-    url: "http://" + window.location.hostname + ":5001/api/v1/status/",
+    url: 'http://' + window.location.hostname + ':5001/api/v1/status/',
     success: function (data) {
       const dataStatus = data.status;
       if (dataStatus === 'OK') {

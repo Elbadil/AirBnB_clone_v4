@@ -23,10 +23,11 @@ $(document).ready(function () {
       }
     }
   });
+  // Updates the amenities checked list
   function updateAmenitiesList () {
     const amenityNames = amenitiesIds.map(id => amenitiesDict[id]);
     if (amenityNames.length === 0) {
-      amenitiesList.text('\u00a0'); // Use '\u00a0' for non-breaking space
+      amenitiesList.text('\u00a0'); // '\u00a0' for non-breaking space
     } else {
       amenitiesList.text(amenityNames.join(', '));
     }
@@ -34,7 +35,7 @@ $(document).ready(function () {
   // Status code
   $.ajax({
     type: 'GET',
-    url: "http://" + window.location.hostname + ":5001/api/v1/status/",
+    url: 'http://' + window.location.hostname + ':5001/api/v1/status/',
     success: function (data) {
       const dataStatus = data.status;
       if (dataStatus === 'OK') {
@@ -44,7 +45,7 @@ $(document).ready(function () {
       }
     },
     error: function (xhr, status, error) {
-      // Handle the error, e.g., display an error message or log the error.
+      // Handling the error, e.g., display an error message or log the error.
       console.error('AJAX request failed:', status, error);
     }
   });
@@ -82,8 +83,7 @@ $(document).ready(function () {
       }
     },
     error: function (xhr, status, error) {
-        console.log('Request failed:', status, error);
+      console.log('Request failed:', status, error);
     }
   });
 });
-
